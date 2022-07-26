@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Content = () => {
+const Profile = () => {
     return (<div className="content">
             <div>
                 <img src="https://nissi-beach.com/wp-content/uploads/2016/11/NissiBeach-21-1620x600.jpg"/>
@@ -23,4 +23,4 @@ const Content = () => {
         </div>);
 };
 
-export default Content;
+export default Profile;

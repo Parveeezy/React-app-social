@@ -1,7 +1,7 @@
 import './App.css';
 import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
-import Content from "./Components/Content";
+import Profile from "./Components/Profile";
 
 
 const App = (props) => {
@@ -9,7 +9,7 @@ const App = (props) => {
         <div className="App-wrapper">
             <Header/>
             <Navbar/>
-            <Content/>
+            <Profile/>
         </div>
     );
 }
