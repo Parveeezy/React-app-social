@@ -1,4 +1,3 @@
-
 .profile {
     grid-area: profile;
     background-color: #aad1ff;
@@ -6,12 +5,4 @@
 
 .profile img {
     width: 1000px;
-}
-
-.posts {
-
-}
-
-.item {
-    color: darkolivegreen;
 }
