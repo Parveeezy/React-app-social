@@ -9,7 +9,7 @@ const Post = (props) => {
                     src="https://img.freepik.com/premium-vector/portrait-of-a-young-man-with-beard-and-hair-style-male-avatar-vector-illustration_266660-423.jpg"/>
                 {props.message}
                 <div>
-                    <span>{props.likes}: {props.count}</span>
+                    <span>Like:</span> {props.likesCount}
                 </div>
             </div>
         </div>)
