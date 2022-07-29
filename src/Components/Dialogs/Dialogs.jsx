@@ -3,7 +3,12 @@ import classes from './Dialogs.module.css'
 const Dialogs = (props) => {
     return (
         <div>
-            Dialogs
+            <div>
+
+            </div>
+            <div>
+
+            </div>
         </div>
     );
 };
