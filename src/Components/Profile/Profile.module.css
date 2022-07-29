@@ -4,5 +4,15 @@
 }
 
 .profile img {
-    width: 1000px;
+    max-width: 1000px;
+}
+
+.profile_ava{
+    padding-top: 25px;
+    padding-left: 15px;
+}
+
+.myPost {
+    padding-top: 25px;
+    padding-left: 15px;
 }
