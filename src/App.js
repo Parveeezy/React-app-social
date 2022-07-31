@@ -8,6 +8,9 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 
+
+
+
 const App = (props) => {
     return (
         <div className="app-wrapper">
