@@ -19,12 +19,18 @@ let messagesData = [
     {id: 4, message: 'GO'},
 ]
 
+let postsData = [
+    {id: 1, message: 'Hello, how it\'s going?', likesCount: 15},
+    {id: 2, message: "hop hey la la ley", likesCount: 35}
+]
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-            <App dialogsData={dialogsData} messagesData={messagesData}/>
+            <App dialogsData={dialogsData} messagesData={messagesData} postsData={postsData}/>
     </BrowserRouter>
   </React.StrictMode>
 );
