@@ -1,15 +1,19 @@
-import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
+import classes from "./MyPosts.module.css";
 
 const MyPosts = () => {
     return (
-        <div>
-            My Posts
+        <div className={classes.myPost}>
+            <h2>My Posts</h2>
             <div>
-                <textarea></textarea>
-                <button>Add post</button>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                </div>
             </div>
-            <div className={s.posts}>
+            <div className={classes.posts}>
                 <Post message="Hello, how it's going?" likesCount={30}/>
                 <Post message="hop hey la la ley" likesCount={15}/>
             </div>

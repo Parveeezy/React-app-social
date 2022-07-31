@@ -1,0 +1,13 @@
+.profileInfo {
+    /*grid-area: profileInfo;*/
+    background-color: #aad1ff;
+}
+
+.profileInfo img {
+    max-width: 1000px;
+}
+
+.descriptionBlock{
+    padding-top: 25px;
+    padding-left: 15px;
+}
