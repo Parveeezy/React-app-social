@@ -1,6 +1,7 @@
 import classes from './Dialogs.module.css'
 import DialogItem from "./DialogsItem/DialogsItem";
 import DialogMessages from "./DialogMessages/DialogMessages";
+import React from "react";
 
 const Dialogs = (props) => {
 
@@ -16,6 +17,12 @@ const Dialogs = (props) => {
             id={message.id}
         />)
 
+    let messageElement = React.createRef()
+
+    let addMessage = () =>{
+        let messageText = messageElement.current.value;
+    }
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
@@ -23,6 +30,14 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.dialogsMessages}>
                 {messageElements}
+            </div>
+            <div>
+                <div>
+                    <textarea ref={messageElement}></textarea>
+                </div>
+                <div>
+                    <button onClick={addMessage}>Add post</button>
+                </div>
             </div>
         </div>
     );
