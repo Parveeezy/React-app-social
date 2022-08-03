@@ -10,8 +10,11 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef()
 
     const addPost = () =>{
-        let postText = postsElements.current.value;
+        debugger;
+        let postText = newPostElement.current.value;
+        props.addPost(postText)
     }
+
 
     return (
         <div className={classes.myPost}>
