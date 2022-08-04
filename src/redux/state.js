@@ -8,6 +8,7 @@ let state = {
         ],
         newPostText: ''
     },
+
     dialogsPage: {
         dialogsData: [
             {id: 1, name: 'Parviz'},
@@ -20,8 +21,10 @@ let state = {
             {id: 2, message: 'One'},
             {id: 3, message: 'Hi'},
             {id: 4, message: 'GO'},
-        ]
+        ],
+        newMessageText: ''
     },
+
     friendsPage: {
         friendsData: [
             {
@@ -52,10 +55,24 @@ export let addPost = (text) => {
     state.profilePage.postsData.push(newPost)
     renderEntireTree(state);
 }
-debugger
+
 export let updateNewPostText = (text) => {
     state.profilePage.newPostText = text;
     renderEntireTree(state);
+}
+
+export let addMessage = (text) => {
+    let newMessage = {
+        id: 5,
+        message: text
+    }
+    state.dialogsPage.messagesData.push(newMessage)
+    renderEntireTree(state);
+}
+
+export let updateNewMessageText = (text) => {
+    state.dialogsPage.newMessageText = text;
+    renderEntireTree(state)
 }
 
 export default state;

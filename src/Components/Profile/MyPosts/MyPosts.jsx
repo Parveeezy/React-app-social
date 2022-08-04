@@ -10,16 +10,14 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef()
 
     const addPost = () => {
-        let text = newPostElement.current.value;
-        // newPostElement.current.value = ''
-        props.addPost(text);
-        props.updateNewPostText('') // Не работает очистка поля после отправки поста
+        let text = newPostElement.current.value; // получаем value из textarea
+        props.addPost(text); //Публикуем запись на стену
+        props.updateNewPostText('') // Очищаем textarea от символовв
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text)
-
+        props.updateNewPostText(text) // Обновляем state для обновления UI
     }
 
     return (
@@ -31,6 +29,7 @@ const MyPosts = (props) => {
                               onChange={onPostChange}
                               value={props.newPostText}/>
                 </div>
+
                 <div>
                     <button onClick={addPost}>Add post</button>
                 </div>
