@@ -9,19 +9,27 @@ const MyPosts = (props) => {
 
     let newPostElement = React.createRef()
 
-    const addPost = () =>{
-        let postText = newPostElement.current.value;
-        props.addPost(postText);
-        newPostElement.current.value = '';
+    const addPost = () => {
+        let text = newPostElement.current.value;
+        // newPostElement.current.value = ''
+        props.addPost(text);
+        props.updateNewPostText('') // Не работает очистка поля после отправки поста
     }
 
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text)
+
+    }
 
     return (
         <div className={classes.myPost}>
             <h2>My Posts</h2>
             <div>
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea ref={newPostElement}
+                              onChange={onPostChange}
+                              value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
