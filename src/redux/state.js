@@ -46,13 +46,14 @@ let state = {
     }
 }
 
-export let addPost = (text) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: text,
+        message: state.profilePage.newPostText,
         likesCount: 12
     }
     state.profilePage.postsData.push(newPost)
+    state.profilePage.newPostText = ''
     renderEntireTree(state);
 }
 
@@ -64,9 +65,10 @@ export let updateNewPostText = (text) => {
 export let addMessage = (text) => {
     let newMessage = {
         id: 5,
-        message: text
+        message: state.dialogsPage.newMessageText
     }
     state.dialogsPage.messagesData.push(newMessage)
+    state.dialogsPage.newMessageText = ''
     renderEntireTree(state);
 }
 
