@@ -4,7 +4,7 @@ import React from "react";
 
 const MyPosts = (props) => {
 
-    let postsElements = props.postsData
+    let postsElements = props.state.postsData
         .map(post => <Post message={post.message} likesCount={post.likesCount}/>)
 
     let newPostElement = React.createRef()
@@ -27,7 +27,7 @@ const MyPosts = (props) => {
                 <div>
                     <textarea ref={newPostElement}
                               onChange={onPostChange}
-                              value={props.newPostText}/>
+                              value={props.state.newPostText}/>
                 </div>
 
                 <div>
