@@ -11,13 +11,15 @@ const MyPosts = (props) => {
 
     const addPost = () => {
         let text = newPostElement.current.value; // получаем value из textarea
-        props.addPost(text); //Публикуем запись на стену
-        props.updateNewPostText('') // Очищаем textarea от символовв
+        // props.addPost(text); //Публикуем запись на стену
+        let action = {type: 'ADD-POST', text: text};
+        props.dispatch(action) // Очищаем textarea от символовв
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text) // Обновляем state для обновления UI
+        let action = {type: 'UPDATE-NEW-POST-TEXT', text: text};
+        props.dispatch(action) // Обновляем state для обновления UI
     }
 
     return (
