@@ -5,17 +5,17 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 const MyPosts = (props) => {
 
-    let postsElements = props.state.postsData
-        .map(post => <Post message={post.message} likesCount={post.likesCount}/>)
+    let state = props.store.getState().profilePage;
 
-    let newPostElement = React.createRef()
+    let postsElements = state.postsData
+        .map(post => <Post message={post.message} likesCount={post.likesCount}/>)
 
     const addPost = () => {
         props.dispatch(addPostActionCreator()) // Очищаем textarea от символовв
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
+    let onPostChange = (e) => {
+        let text = e.target.value;
         let action = updateNewPostTextActionCreator(text);
         props.dispatch(action) // Обновляем state для обновления UI
     }
@@ -25,9 +25,9 @@ const MyPosts = (props) => {
             <h2>My Posts</h2>
             <div>
                 <div>
-                    <textarea ref={newPostElement}
-                              onChange={onPostChange}
-                              value={props.state.newPostText}/>
+                    <textarea onChange={onPostChange}
+                              value={state.newPostText}
+                    />
                 </div>
 
                 <div>
