@@ -1,9 +1,6 @@
-const ADD_POST = {type: 'ADD-POST'};
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import friendsReducer from "./friends-reducer";
 
 let store = {
     _state: {
@@ -60,52 +57,15 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    _addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 12
-        }
-        this._state.profilePage.postsData.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber(this._state);
-    },
-    _updateNewPostText(text) {
-        this._state.profilePage.newPostText = text;
-        this._callSubscriber(this._state);
-    },
-    _addMessage() {
-        let newMessage = {
-            id: 5,
-            message: this._state.dialogsPage.newMessageText
-        }
-        this._state.dialogsPage.messagesData.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._callSubscriber(this._state);
-    },
-    _updateNewMessageText(text) {
-        this._state.dialogsPage.newMessageText = text;
-        this._callSubscriber(this._state)
-    },
-
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost(action.text)
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.text)
-        } else if (action.type === ADD_MESSAGE) {
-            this._addMessage(action.text)
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
-            this._updateNewMessageText(action.text)
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.friendsPage = friendsReducer(this._state.friendsPage, action);
+
+        this._callSubscriber(this._state)
     }
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text: text})
-
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const onMessageChangeActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, text: text})
 
 export default store;
 window.store = store;
