@@ -1,23 +1,18 @@
 import Post from "./Post/Post";
 import classes from "./MyPosts.module.css";
-import React from "react";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
 
-    let state = props.store.getState().profilePage;
-
-    let postsElements = state.postsData
+    let postsElements = props.posts
         .map(post => <Post message={post.message} likesCount={post.likesCount}/>)
 
-    const addPost = () => {
-        props.dispatch(addPostActionCreator()) // Очищаем textarea от символовв
+    const onAddPost = () => {
+        props.addPost();
     }
 
     let onPostChange = (e) => {
         let text = e.target.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action) // Обновляем state для обновления UI
+        props.updateNewPostText(text)
     }
 
     return (
@@ -26,12 +21,12 @@ const MyPosts = (props) => {
             <div>
                 <div>
                     <textarea onChange={onPostChange}
-                              value={state.newPostText}
+                              value={props.newPostText}
                     />
                 </div>
 
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={onAddPost}>Add post</button>
                 </div>
             </div>
             <div className={classes.posts}>
