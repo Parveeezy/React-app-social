@@ -9,12 +9,14 @@ const Dialogs = (props) => {
         .map(dialog => <DialogItem
             name={dialog.name}
             id={dialog.id}
+            key={dialog.id}
         />)
 
     let messageElements = props.dialogsPage.messagesData
         .map(message => <DialogMessages
             message={message.message}
             id={message.id}
+            key={message.id}
         />)
 
     let onAddMessage = () => {

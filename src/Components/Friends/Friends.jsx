@@ -6,7 +6,7 @@ const Friends = (props) => {
     let state = props.store.getState().friendsPage;
 
     let friendsElements = state.friendsData
-        .map(friends => <div className={classes.friendItem}>
+        .map(friends => <div key={friends.id} className={classes.friendItem}>
             <img alt='person-avatar'
                  src={friends.image}/>
             {friends.name}
