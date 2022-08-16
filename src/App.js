@@ -6,20 +6,20 @@ import {Route, Routes} from "react-router-dom";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import DialogsContainer from "./Components/Dialogs/DialogsItem/DialogsContainer";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
     return (
         <div className="app-wrapper">
             <Header/>
-            <Navbar store={props.store}/>
+            <Navbar/>
 
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path='/Profile' element={<Profile store={props.store}/>}/>
+                    <Route path='/Profile' element={<Profile/>}/>
 
-                    <Route path="/Dialogs/*" element={<DialogsContainer store={props.store}/>}/>
+                    <Route path="/Dialogs/*" element={<DialogsContainer/>}/>
 
                     <Route path='/News' element={<News/>}/>
                     <Route path='/Music' element={<Music/>}/>
