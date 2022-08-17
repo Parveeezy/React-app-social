@@ -2,9 +2,7 @@ import classes from './Dialogs.module.css'
 import DialogItem from "./DialogsItem/DialogsItem";
 import DialogMessages from "./DialogMessages/DialogMessages";
 
-
 const Dialogs = (props) => {
-
     let dialogElements = props.dialogsPage.dialogsData
         .map(dialog => <DialogItem
             name={dialog.name}
