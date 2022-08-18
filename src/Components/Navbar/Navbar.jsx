@@ -20,7 +20,7 @@ const Navbar = (props) => {
             <div className={classes.item}>
                 <NavLink to="/Settings" className={({isActive}) => isActive ? classes.active : classes.item}>Settings</NavLink>
             </div>
-            <FriendsContainer store={props.store}/>
+            {/*<FriendsContainer store={props.store}/>*/}
         </nav>
     );
 };
