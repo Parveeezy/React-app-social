@@ -24,10 +24,10 @@ const friendsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case FRIENDS_LIST: {
-            let stateCopy = {...state};
-            stateCopy.friendsData = [...state.friendsData]
-            // stateCopy.friendsData.push() ???
-            return stateCopy;
+            return  {
+                ...state,
+                // friendsData: [...state.friendsData]
+            };
         }
         default:
             return state;
