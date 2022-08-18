@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Friends.module.css'
 
 const Friends = (props) => {
-    let friendsElements = props.state.friendsData
+    let friendsElements = props.friendsPage.friendsData
         .map(friends => <div key={friends.id} className={classes.friendItem}>
             <img alt='person-avatar'
                  src={friends.image}/>

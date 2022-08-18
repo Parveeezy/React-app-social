@@ -8,7 +8,6 @@ import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
-
 const App = (props) => {
     return (
         <div className="app-wrapper">
