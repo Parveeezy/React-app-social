@@ -4,7 +4,7 @@ import {followActionCreator, setUsersActionCreator, unfollowActionCreator} from 
 
 const mapStateToProps = (state) => {
     return {
-        users: state.usersPage.usersData
+        users: state.usersPage.users
     }
 }
 
