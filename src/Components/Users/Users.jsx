@@ -56,7 +56,9 @@ import userPhoto from '../../assets/images/user_img.png'
 class Users extends Component {
     constructor(props) {
         super(props);
+    }
 
+    componentDidMount() {
         axios
             .get('https://social-network.samuraijs.com/api/1.0/users/')
             .then(response => {
@@ -64,17 +66,9 @@ class Users extends Component {
             });
     }
 
-
-    getUsers = () => {
-        if (this.props.users.length === 0) {
-
-        }
-    }
-
     render() {
         return (
             <div>
-                <button onClick={this.getUsers}>Get Users</button>
                 {
                     this.props.users.map(user => <div key={user.id}>
                     <span>
