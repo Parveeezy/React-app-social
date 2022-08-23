@@ -10,7 +10,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import Users from "./Users";
 
-class UsersApiComponent extends Component {
+class UsersContainer extends Component {
     componentDidMount() {
         axios
             .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
@@ -71,5 +71,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const usersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersApiComponent)
+const usersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
 export default usersContainer;
