@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/user_img.png";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
 
@@ -19,38 +20,35 @@ const Users = (props) => {
     let slicedPages = pages.slice(curPF, curPL);
 
 
-    return (
-        <div>
-            <div className={styles.pages}>
-                {slicedPages.map(p => {
-                    return <span key={props.id} className={props.currentPage === p && styles.selectedPage}
-                                 onClick={(e) => {
-                                     props.onPageChanged(p)
-                                 }}>
+    return (<div>
+        <div className={styles.pages}>
+            {slicedPages.map(p => {
+                return <span key={props.id} className={props.currentPage === p && styles.selectedPage}
+                             onClick={(e) => {
+                                 props.onPageChanged(p)
+                             }}>
                             {p}
                         </span>
-                })}
-            </div>
-            {
-                props.users.map(user => <div key={user.id}>
+            })}
+        </div>
+        {props.users.map(user => <div key={user.id}>
                     <span>
                         <div>
-                            <img src={user.photos.small != null ? user.photos.small : userPhoto} alt='user'
-                                 className={styles.userPhoto}/>
+                            <NavLink to={'./../Profile/' + user.id}>
+                                <img src={user.photos.small != null ? user.photos.small : userPhoto}
+                                     className={styles.userPhoto}/>
+                            </NavLink>
                         </div>
                         <div>
-                            {user.followed
-                                ? <button onClick={() => {
-                                    props.unfollow(user.id)
-                                }}>Unfollow</button>
-                                : <button onClick={() => {
-                                    props.follow(user.id)
-                                }}>Follow</button>
-                            }
+                            {user.followed ? <button onClick={() => {
+                                props.unfollow(user.id)
+                            }}>Unfollow</button> : <button onClick={() => {
+                                props.follow(user.id)
+                            }}>Follow</button>}
                         </div>
                     </span>
 
-                        <span>
+            <span>
                         <span>
                             <div>{user.name}</div><div>{user.status}</div>
                         </span>
@@ -59,11 +57,8 @@ const Users = (props) => {
                             <div>{"user.location.city"}</div>
                         </span>
                     </span>
-                    </div>
-                )
-            }
-        </div>
-    );
+        </div>)}
+    </div>);
 };
 
 export default Users;
