@@ -31,11 +31,11 @@ const Users = (props) => {
                         </span>
             })}
         </div>
-        {props.users.map(user => <div key={user.id}>
+        {props.users.map(user => (<div key={user.id}>
                     <span>
                         <div>
                             <NavLink to={'./../Profile/' + user.id}>
-                                <img src={user.photos.small != null ? user.photos.small : userPhoto}
+                                <img alt='img' src={user.photos.small != null ? user.photos.small : userPhoto}
                                      className={styles.userPhoto}/>
                             </NavLink>
                         </div>
@@ -57,7 +57,7 @@ const Users = (props) => {
                             <div>{"user.location.city"}</div>
                         </span>
                     </span>
-        </div>)}
+        </div>))}
     </div>);
 };
 

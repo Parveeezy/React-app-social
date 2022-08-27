@@ -1,7 +1,6 @@
 import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
-import Profile from "./Components/Profile/Profile";
 import {Route, Routes} from "react-router-dom";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
@@ -18,9 +17,13 @@ const App = (props) => {
 
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path='/Profile/*' element={<ProfileContainer/>}/>
+                    <Route path='/profile/' element={<ProfileContainer/>}>
+                        <Route path=':userId' element={<ProfileContainer/>}/>
+                    </Route>
+
 
                     <Route path="/Dialogs/*" element={<DialogsContainer/>}/>
+
 
                     <Route path='Users/*' element={<UsersContainer/>}/>
 

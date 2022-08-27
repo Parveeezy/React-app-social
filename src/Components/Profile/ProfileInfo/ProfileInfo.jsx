@@ -3,7 +3,6 @@ import classes from "./ProfileInfio.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
-
     if (!props.profile) {
         return <Preloader/>
     }
@@ -14,8 +13,8 @@ const ProfileInfo = (props) => {
                 <img alt="img" src="https://nissi-beach.com/wp-content/uploads/2016/11/NissiBeach-21-1620x600.jpg"/>
             </div>
             <div className={classes.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-                ava + description
+                <img alt='img' src={props.profile.photos.large}/>
+                <p>ava + description</p>
             </div>
         </div>
     );
