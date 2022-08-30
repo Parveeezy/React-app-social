@@ -1,4 +1,4 @@
-.header{
+.header {
     grid-area: header;
     background-color: darkgray;
 }
@@ -6,4 +6,13 @@
 .header img {
     padding-left: 30px;
     width: 60px;
+}
+
+.loginBlock {
+    float: right;
+    color: aliceblue;
+}
+
+.loginBlock a {
+    color: aliceblue;
 }
